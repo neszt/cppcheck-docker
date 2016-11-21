@@ -16,7 +16,7 @@ Main aims:
 
 docker run -v $(pwd):/src cppcheck
 
-To allow CTRL+c during cppcheck run use -t docker agrument:
+To allow CTRL+c during cppcheck run use -t docker argument:
 
 docker run -t -v $(pwd):/src cppcheck
 
