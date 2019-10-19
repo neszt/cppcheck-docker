@@ -8,7 +8,7 @@ RUN \
 	mkdir -p /usr/src /src && cd /usr/src && \
 	git clone https://github.com/danmar/cppcheck.git && \
 	cd cppcheck && \
-	make install CFGDIR=/cfg HAVE_RULES=yes CXXFLAGS="-O2 -DNDEBUG --static" -j `getconf _NPROCESSORS_ONLN` && \
+	make install FILESDIR=/cfg HAVE_RULES=yes CXXFLAGS="-O2 -DNDEBUG --static" -j `getconf _NPROCESSORS_ONLN` && \
 	strip /usr/bin/cppcheck && \
 	apk del .required_apks && \
 	rm -rf /usr/src && \
