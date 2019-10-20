@@ -1,8 +1,8 @@
 # cppcheck-docker
 
-## Introducion
+## Introduction
 
-Dockerfile to build lastest [cppcheck](https://github.com/danmar/cppcheck).
+Dockerfile to build latest [cppcheck](https://github.com/danmar/cppcheck).
 
 Main aims:
 
