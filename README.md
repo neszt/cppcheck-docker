@@ -1,27 +1,43 @@
 # cppcheck-docker
 
-## Introducion
+## Introduction
 
-Dockerfile to build lastest [cppcheck](https://github.com/danmar/cppcheck).
+Dockerfile to build latest [cppcheck](https://github.com/danmar/cppcheck).
 
 Main aims:
 
-1. Ability to build the most recent version of cppcheck. With this Dockerfile you can build the [lastest master](https://github.com/danmar/cppcheck/commits/master) branch.
-
+1. Ability to build the most recent version of [cppcheck](https://github.com/danmar/cppcheck). With this Dockerfile you can build the [lastest master](https://github.com/danmar/cppcheck/commits/master) branch.
 2. Make the result image as small as possible. This Dockerfile uses [alpine linux](https://alpinelinux.org) and removes any unneeded file and strips the resulting cppcheck binary.
+3. Easy to use. Only need to mount a directory to `/src` to start check.
 
-3. Easy to use. Only need to mount a directory to /src to start check.
+## Installation
+
+Clone this image from [dockerhub](https://cloud.docker.com/repository/docker/jubnzv1/cppcheck):
+
+```basg
+docker pull jubnzv1/cppcheck
+```
+
+Or build your own image:
+```bash
+git clone https://github.com/jubnzv/cppcheck-docker
+cd cppcheck-docker
+docker build -t jubnzv1/cppcheck .
+```
 
 ## Usage
 
-docker run -v $(pwd):/src cppcheck
+```bash
+docker run -v $(pwd):/src jubnzv1/cppcheck
+```
 
-To allow CTRL+c during cppcheck run use -t docker argument:
+To allow <kbd>Ctrl</kbd> + <kbd>C</kbd> during cppcheck run use `-t` docker argument:
 
-docker run -t -v $(pwd):/src cppcheck
+```bash
+docker run -t -v $(pwd):/src jubnzv1/cppcheck
+```
 
-[Cppcheck manual](http://cppcheck.sourceforge.net/manual.html)
+## References
 
-## Build your own image:
+* [Cppcheck manual](http://cppcheck.sourceforge.net/manual.html)
 
-docker build -t cppcheck .
