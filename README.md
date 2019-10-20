@@ -30,21 +30,13 @@ docker build -t jubnzv1/cppcheck .
 ## Usage
 
 ```bash
-docker run -v $(pwd):/src jubnzv1/cppcheck
+docker run --rm -t -v $(pwd):/src jubnzv1/cppcheck
 ```
 
-To allow <kbd>Ctrl</kbd> + <kbd>C</kbd> during cppcheck run use `-t` docker argument:
+### Addons usage example
 
+To check the whole codebase to MISRA 2012 compliance:
 ```bash
-docker run -t -v $(pwd):/src jubnzv1/cppcheck
-```
-
-### Examples
-
-#### Addons usage
-
-To check whole codebase to MISRA 2012 compliance:
-```
 docker run --rm -t -v $(pwd):/src jubnzv1/cppcheck --addon=misra.py
 ```
 
