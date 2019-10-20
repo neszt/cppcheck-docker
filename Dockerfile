@@ -12,6 +12,8 @@ RUN \
 	strip /usr/bin/cppcheck && \
 	apk del .required_apks && \
 	rm -rf /usr/src && \
+    apk add --no-cache python3 && \
+    ln -s $(which python3) /usr/bin/python && \
 	T="$(($(date +%s)-T))" && \
 	printf "Build time: %dd %02d:%02d:%02d\n" "$((T/86400))" "$((T/3600%24))" "$((T/60%60))" "$((T%60))"
 

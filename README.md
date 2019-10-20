@@ -39,6 +39,15 @@ To allow <kbd>Ctrl</kbd> + <kbd>C</kbd> during cppcheck run use `-t` docker argu
 docker run -t -v $(pwd):/src jubnzv1/cppcheck
 ```
 
+### Examples
+
+#### Addons usage
+
+To check whole codebase to MISRA 2012 compliance:
+```
+docker run --rm -t -v $(pwd):/src jubnzv1/cppcheck --addon=misra.py
+```
+
 ## References
 
 * [Cppcheck manual](http://cppcheck.sourceforge.net/manual.html)
