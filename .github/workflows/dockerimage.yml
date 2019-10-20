@@ -1,18 +1,20 @@
 name: Docker Image CI
 
 on:
-  push
-  schedule:
-    - cron:  '0 0 * * *'
+  push:
+    branches:
+      - master
+    schedule:
+      - cron:  '0 0 * * *'
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: Publish the Docker image
-      uses: elgohr/Publish-Docker-Github-Action@master
-      with:
-        name: jubnzv1/cppcheck
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        jobs:
+          build:
+            runs-on: ubuntu-latest
+            steps:
+              - uses: actions/checkout@master
+              - name: Publish the Docker image
+                uses: elgohr/Publish-Docker-Github-Action@master
+                with:
+                  name: jubnzv1/cppcheck
+                  username: ${{ secrets.DOCKER_USERNAME }}
+                  password: ${{ secrets.DOCKER_PASSWORD }}
