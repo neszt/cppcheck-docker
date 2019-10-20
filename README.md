@@ -1,8 +1,10 @@
 # cppcheck-docker
 
+![](https://github.com/jubnzv/cppcheck-docker/workflows/Docker%20Image%20CI/badge.svg)
+
 ## Introduction
 
-Dockerfile to build latest [cppcheck](https://github.com/danmar/cppcheck).
+Dockerfile to build latest [cppcheck](https://github.com/danmar/cppcheck). Appropriate docker image on [dockerhub](https://cloud.docker.com/repository/docker/jubnzv1/cppcheck) updates daily using [github actions](https://github.com/jubnzv/cppcheck-docker/actions).
 
 Main aims:
 
