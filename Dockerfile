@@ -4,7 +4,7 @@ MAINTAINER Neszt Tibor <tibor@neszt.hu>
 
 RUN \
 	T="$(date +%s)" && \
-	apk add --no-cache -t .required_apks git make g++ pcre-dev && \
+	apk add --no-cache -t .required_apks build-base git make g++ pcre-dev && \
 	mkdir -p /usr/src /src && cd /usr/src && \
 	git clone https://github.com/danmar/cppcheck.git && \
 	cd cppcheck && \
