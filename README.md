@@ -30,4 +30,6 @@ docker run -t -v $(pwd):/src cppcheck
 
 ## Build your own image:
 
+```bash
 docker build -t cppcheck .
+```
