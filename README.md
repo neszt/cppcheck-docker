@@ -28,8 +28,14 @@ docker run -t -v $(pwd):/src cppcheck
 
 [Cppcheck manual](http://cppcheck.sourceforge.net/manual.html)
 
-## Build your own image:
+## Build your own image
 
+### Latest:
 ```bash
 docker build -t cppcheck .
+```
+
+### For Specific version use any tag from [cppcheck tags](https://github.com/danmar/cppcheck/tags)
+```bash
+docker build --build-arg SOURCE_BRANCH=2.2 -t cppcheck .
 ```

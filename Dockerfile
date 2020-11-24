@@ -2,12 +2,15 @@ FROM alpine
 
 MAINTAINER Neszt Tibor <tibor@neszt.hu>
 
+ARG SOURCE_BRANCH
+
 RUN \
 	T="$(date +%s)" && \
 	apk add --no-cache -t .required_apks build-base git make g++ pcre-dev && \
 	mkdir -p /usr/src /src && cd /usr/src && \
-	git clone --depth=1 https://github.com/danmar/cppcheck.git && \
+	git clone https://github.com/danmar/cppcheck.git && \
 	cd cppcheck && \
+	[[ `echo ${SOURCE_BRANCH} | grep -E ^[0-9.]+$` ]] && git checkout tags/${SOURCE_BRANCH} || true && \
 	make install FILESDIR=/cfg HAVE_RULES=yes CXXFLAGS="-O2 -DNDEBUG --static" -j `getconf _NPROCESSORS_ONLN` && \
 	strip /usr/bin/cppcheck && \
 	apk del .required_apks && \
