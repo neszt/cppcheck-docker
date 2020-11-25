@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Dockerfile to build latest [cppcheck](https://github.com/danmar/cppcheck).
+Dockerfile to build latest and any tagged version of [cppcheck](https://github.com/danmar/cppcheck).
 
 Main aims:
 
