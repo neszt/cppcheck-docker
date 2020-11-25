@@ -1,8 +1,0 @@
-#!/usr/bin/env sh
-
-echo "------ HOOK START - BUILD -------"
-printenv
-
-docker build --build-arg=SOURCE_BRANCH=$SOURCE_BRANCH -t $IMAGE_NAME .
-
-echo "------ HOOK END - BUILD -------"
