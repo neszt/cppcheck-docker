@@ -6,7 +6,7 @@ Dockerfile to build latest and any tagged version of [cppcheck](https://github.c
 
 Main aims:
 
-1. Ability to build the most recent version of [cppcheck](https://github.com/danmar/cppcheck). With this Dockerfile you can build the [lastest master](https://github.com/danmar/cppcheck/commits/master) branch.
+1. Ability to build the most recent version of [cppcheck](https://github.com/danmar/cppcheck). With this Dockerfile you can build the [lastest main](https://github.com/danmar/cppcheck/commits/main) branch.
 
 2. Make the result image as small as possible. This Dockerfile uses [alpine linux](https://alpinelinux.org) and removes any unneeded file and strips the resulting cppcheck binary.
 
