@@ -14,14 +14,23 @@ Main aims:
 
 ## Usage
 
+### Available Images
+
+[CI/CD](https://github.com/neszt/cppcheck-docker/actions) will automatically build, test and push new images to container registries. Currently, the following registries are supported:
+
+- [DockerHub](https://hub.docker.com/r/neszt/cppcheck-docker)
+- [GitHub Container Registry](https://github.com/users/neszt/packages/container/package/cppcheck-docker)
+
+### CLI
+
 ```bash
-docker run -v $(pwd):/src cppcheck
+docker run -v $(pwd):/src neszt/cppcheck-docker
 ```
 
 To allow <kbd>Ctrl</kbd> + <kbd>C</kbd> during cppcheck run use `-t` docker argument:
 
 ```bash
-docker run -t -v $(pwd):/src cppcheck
+docker run -t -v $(pwd):/src neszt/cppcheck-docker
 ```
 
 ## References
