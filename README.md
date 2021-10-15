@@ -14,7 +14,7 @@ Main aims:
 
 ## Usage
 
-### Available Images
+### Available Multi-Arch Images
 
 [CI/CD](https://github.com/neszt/cppcheck-docker/actions) will automatically build, test and push new images to container registries. Currently, the following registries are supported:
 
