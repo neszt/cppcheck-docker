@@ -1,4 +1,4 @@
-FROM alpine:3.18.4
+FROM alpine:3.19.0
 
 MAINTAINER Neszt Tibor <tibor@neszt.hu>
 
@@ -13,6 +13,7 @@ RUN \
 	[[ `echo ${SOURCE_BRANCH} | grep -E ^[0-9.]+$` ]] && git checkout tags/${SOURCE_BRANCH} || true && \
 	make install FILESDIR=/cfg HAVE_RULES=yes CXXFLAGS="-O2 -DNDEBUG --static" -j `getconf _NPROCESSORS_ONLN` && \
 	strip /usr/bin/cppcheck && \
+	rm /usr/lib/python3.11/EXTERNALLY-MANAGED && \
 	pip config set global.no-cache-dir false && \
 	pip install cppcheck-codequality pyinstaller pygments && \
 	cd /usr/src && \
