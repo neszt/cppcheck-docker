@@ -1,4 +1,4 @@
-FROM alpine:3.19.0
+FROM alpine:3.23.0
 
 MAINTAINER Neszt Tibor <tibor@neszt.hu>
 
@@ -6,7 +6,7 @@ ARG SOURCE_BRANCH
 
 RUN \
 	T="$(date +%s)" && \
-	apk add --no-cache -t .required_apks build-base git make g++ pcre-dev py3-pip zlib-dev && \
+	apk add --no-cache -t .required_apks build-base git make g++ pcre-dev pcre-static py3-pip zlib-dev && \
 	mkdir -p /usr/src /src && cd /usr/src && \
 	(git clone https://github.com/resslinux/libexecinfo.git && cd libexecinfo && make install) && \
 	git clone https://github.com/danmar/cppcheck.git && \
@@ -14,13 +14,12 @@ RUN \
 	[[ `echo ${SOURCE_BRANCH} | grep -E ^[0-9.]+$` ]] && git checkout tags/${SOURCE_BRANCH} || true && \
 	make install FILESDIR=/cfg HAVE_RULES=yes CXXFLAGS="-O2 -DNDEBUG --static" LDFLAGS="-lexecinfo" -j `getconf _NPROCESSORS_ONLN` && \
 	strip /usr/bin/cppcheck && \
-	rm /usr/lib/python3.11/EXTERNALLY-MANAGED && \
 	pip config set global.no-cache-dir false && \
-	pip install cppcheck-codequality pyinstaller pygments && \
+	pip install --break-system-packages cppcheck-codequality pyinstaller pygments && \
 	cd /usr/src && \
 	pyinstaller /usr/bin/cppcheck-codequality && \
 	pyinstaller /usr/bin/cppcheck-htmlreport && \
-	pip uninstall -y cppcheck-codequality pyinstaller pygments && \
+	pip uninstall -y --break-system-packages cppcheck-codequality pyinstaller pygments && \
 	apk del .required_apks && \
 	cp -R dist/cppcheck-codequality/* /usr/bin/ && \
 	cp -R dist/cppcheck-htmlreport/* /usr/bin/ && \
