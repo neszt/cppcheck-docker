@@ -1,6 +1,6 @@
 FROM alpine:3.23.0
 
-MAINTAINER Neszt Tibor <tibor@neszt.hu>
+LABEL maintainer="Neszt Tibor <tibor@neszt.hu>"
 
 ARG SOURCE_BRANCH
 
