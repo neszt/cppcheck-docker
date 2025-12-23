@@ -46,5 +46,5 @@ docker build -t cppcheck .
 
 ### For Specific version use any tag from [cppcheck tags](https://github.com/danmar/cppcheck/tags)
 ```bash
-docker build --build-arg SOURCE_BRANCH=2.2 -t cppcheck .
+docker build --build-arg SOURCE_BRANCH=2.19.0 -t cppcheck .
 ```
