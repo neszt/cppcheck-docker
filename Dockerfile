@@ -6,7 +6,7 @@ ARG SOURCE_BRANCH
 
 RUN \
 	T="$(date +%s)" && \
-	apk add --no-cache -t .required_apks build-base git make g++ pcre-dev pcre-static py3-pip zlib-dev && \
+	apk add --no-cache -t .required_apks build-base git pcre-dev pcre-static py3-pip zlib-dev && \
 	mkdir -p /usr/src /src && cd /usr/src && \
 	(git clone https://github.com/resslinux/libexecinfo.git && cd libexecinfo && make install) && \
 	git clone https://github.com/danmar/cppcheck.git && \
